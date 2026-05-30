@@ -1,17 +1,26 @@
 {
   "manifest_version": 3,
-  "name": "NantiBisaDiganti",
+  "name": "Judol Detector",
   "version": "1.0",
+  "description": "Mendeteksi konten judi online pada halaman web menggunakan algoritma KMP, Boyer-Moore, RegEx, dan Fuzzy Matching",
   "permissions": ["storage"],
   "host_permissions": ["<all_urls>"],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_title": "Judol Detector"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
+      "css": ["content.css"],
       "js": ["content.js"],
       "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["keywords.txt", "assets/*.js"],
+      "matches": ["<all_urls>"]
     }
   ]
 }

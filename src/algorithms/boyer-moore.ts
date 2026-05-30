@@ -1,6 +1,6 @@
 import { MatchResult } from "./kmp";
 
-export function lastOccurenceTable (pattern: string): Map<string, number> {
+export function lastOccurrenceTable (pattern: string): Map<string, number> {
     const table = new Map<string, number>();
 
     for (let i = 0; i < pattern.length; i++) {
@@ -66,7 +66,7 @@ export function boyerMooreSearch (text: string, pattern: string): MatchResult {
     }
     const textUpper = text.toUpperCase();
     const patternUpper = pattern.toUpperCase();
-    const lastOccurence = lastOccurenceTable(patternUpper);
+    const lastOccurrence = lastOccurrenceTable(patternUpper);
     const goodSuffix = goodSuffixTable(patternUpper);
 
     let i = 0;
@@ -84,7 +84,7 @@ export function boyerMooreSearch (text: string, pattern: string): MatchResult {
         } else {
             comparisons++;
 
-            const lastPos = lastOccurence.get(textUpper[i + j]) ?? -1;
+            const lastPos = lastOccurrence.get(textUpper[i + j]) ?? -1;
             const badCharShift = j - lastPos;
             const goodSuffixShift = goodSuffix[j + 1];
 

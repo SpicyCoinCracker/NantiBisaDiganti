@@ -10,15 +10,37 @@ export default defineConfig({
         {
           src: 'public/manifest.json',
           dest: '.',
-        }
+        },
+        {
+          src: 'public/images/*',
+          dest: 'images/',
+        },
+        {
+          src: 'keywords/keywords.txt',
+          dest: '.',
+        },
+        {
+          src: 'src/styles/content.css',
+          dest: '.',
+        },
       ],
     }),
   ],
   build: {
-    outDir: 'build',
+    outDir: 'dist',
     rollupOptions: {
       input: {
-        main: './popup.html',
+        popup: './popup.html',
+        content: './src/content/content.ts',
+      },
+      output: {
+        entryFileNames: (chunk) => {
+          if (chunk.name === 'content') return 'content.js';
+          if (chunk.name === 'popup') return 'assets/popup-[hash].js';
+          return 'assets/[name]-[hash].js';
+        },
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash][extname]',
       },
     },
   },
