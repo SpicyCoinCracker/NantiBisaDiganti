@@ -20,7 +20,6 @@ export function blurDetectedElements(): void {
         const block = findBlockContainer(el as HTMLElement);
         if (!block || block.classList.contains(BLUR_CLASS)) continue;
 
-        // Prevent blurring search bars, headers, and huge structural elements
         if (block.tagName === 'BODY' || block.tagName === 'HTML' || block.tagName === 'MAIN' ||
             block.closest('form') || block.closest('header') || block.closest('nav') || 
             block.closest('[role="search"]') || block.closest('input') || block.closest('textarea')) {
@@ -32,7 +31,6 @@ export function blurDetectedElements(): void {
         block.style.cursor = 'pointer';
         block.style.transition = 'filter 0.3s ease';
 
-        // Add unblur click listener
         const unblurOnClick = (e: MouseEvent) => {
             e.preventDefault();
             e.stopPropagation();

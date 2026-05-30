@@ -41,14 +41,6 @@ export function goodSuffixTable(pattern: string): number[] {
     return shift;
 }
 
-/**
- * Mencari semua kemunculan pattern di dalam text
- * menggunakan algoritma Boyer-Moore
- * 
- * @param text    - teks yang akan dicari
- * @param pattern - kata kunci yang dicari
- * @returns MatchResult berisi posisi, waktu, dan jumlah perbandingan
- */
 export function boyerMooreSearch (text: string, pattern: string): MatchResult {
     const startTime = performance.now();
     const indices: number[] = [];
@@ -98,13 +90,6 @@ export function boyerMooreSearch (text: string, pattern: string): MatchResult {
     };
 }
 
-/**
- * Mencari semua keyword sekaligus menggunakan BM
- * 
- * @param text     - teks yang akan dicari
- * @param keywords - array kata kunci
- * @returns Map dari keyword ke MatchResult-nya
- */
 export function bmSearchMultiple(
   text: string,
   keywords: string[]

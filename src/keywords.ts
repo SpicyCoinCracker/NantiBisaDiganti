@@ -1,5 +1,5 @@
 export const KEYWORD_JUDI: string[] = [
-    'slot', 'judi', 'togel', 'casino', 'taruhan', 'betting',
+    'slot', 'togel', 'casino', 'taruhan', 'betting',
     'gacor', 'maxwin', 'jackpot', 'scatter', 'rtp', 'spin',
     'pragmatic', 'habanero',
     'cuan', 'bonanza', 'petir', 'zeus', 'dewa', 'sultan',
@@ -8,5 +8,5 @@ export const KEYWORD_JUDI: string[] = [
     'hoki88', 'hoki99', 'madu308', 'madu88', 'madu99',
     'petir88', 'petir99', 'megaways', 'starlight', 'gates', 'olympus',
     'hoki', 'madu', 'jp', 'bet', 'master', 'wild',
-    '777', '188', '388', '688', '888',
+    '777', '188', '388', '688', '888', '88', 'sbobet', 'parlay'
 ];

@@ -28,14 +28,6 @@ export function failureFunction (pattern: string): number[] {
     return failure;
 }
 
-/**
- * Mencari semua kemunculan pattern di dalam text
- * menggunakan algoritma KMP
- * 
- * @param text    - teks yang akan dicari (konten halaman web)
- * @param pattern - kata kunci yang dicari
- * @returns MatchResult berisi posisi, waktu, dan jumlah perbandingan
- */
 export function kmpSearch (text: string, pattern: string): MatchResult {
     const startTime = performance.now();
     const indices: number[] = [];
@@ -85,13 +77,6 @@ export function kmpSearch (text: string, pattern: string): MatchResult {
     };
 }
 
-/**
- * Mencari semua keyword sekaligus di dalam satu teks
- * 
- * @param text     - teks yang akan dicari
- * @param keywords - array kata kunci
- * @returns Map dari keyword ke MatchResult-nya
- */
 export function kmpSearchMultiple (
   text: string,
   keywords: string[]
