@@ -4,6 +4,8 @@ import { highlightMatch, removeHighlights } from './highlighter';
 import { attachTooltipEvents, detachTooltipEvents } from './tooltip';
 import { loadKeywordsFromFile } from './keywordLoader';
 
+declare const chrome: any;
+
 let isScanning = false;
 let lastStats: PipelineStats | null = null;
 
@@ -52,7 +54,7 @@ export async function scanPage(): Promise<PipelineStats | null> {
         }>((resolve) => {
             chrome.storage.local.get(
                 ['judolUseAC', 'judolUseRK'],
-                (r) => resolve({
+                (r: any) => resolve({
                     useAC: r.judolUseAC === true,
                     useRK: r.judolUseRK === true,
                 })

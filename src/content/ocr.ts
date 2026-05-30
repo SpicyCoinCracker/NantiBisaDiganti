@@ -1,5 +1,7 @@
 import { loadKeywordsFromFile } from './keywordLoader';
 
+declare const chrome: any;
+
 let ocrEnabled = false;
 let ocrKeywords: string[] | null = null;
 
@@ -100,6 +102,6 @@ function containsManual(text: string, pattern: string): boolean {
     return false;
 }
 
-chrome.storage.local.get('judolOcrEnabled', (result) => {
+chrome.storage.local.get('judolOcrEnabled', (result: any) => {
     ocrEnabled = result.judolOcrEnabled === true;
 });

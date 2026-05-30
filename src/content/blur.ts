@@ -1,3 +1,5 @@
+declare const chrome: any;
+
 const BLUR_CLASS = 'judol-blurred';
 let blurEnabled = false;
 export function isBlurEnabled(): boolean {
@@ -81,6 +83,6 @@ function findBlockContainer(el: HTMLElement): HTMLElement | null {
     return el.parentElement;
 }
 
-chrome.storage.local.get('judolBlurEnabled', (result) => {
+chrome.storage.local.get('judolBlurEnabled', (result: any) => {
     blurEnabled = result.judolBlurEnabled === true;
 });

@@ -1,5 +1,7 @@
 let cached: string[] | null = null;
 
+declare const chrome: any;
+
 export async function loadKeywordsFromFile(): Promise<string[]> {
     if (cached !== null) return cached;
 

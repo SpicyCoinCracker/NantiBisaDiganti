@@ -1,3 +1,5 @@
+declare const chrome: any;
+
 import { scanPage, clearHighlights } from './context';
 import { blurDetectedElements, unblurAll, setBlurEnabled as updateBlurState } from './blur';
 import { setOcrEnabled as updateOcrState, scanImages } from './ocr';
@@ -23,7 +25,7 @@ function scheduleScan(delay: number = 300) {
 async function performScan() {
     const stats = await scanPage();
 
-    chrome.storage.local.get(['judolBlurEnabled', 'judolOcrEnabled'], (result) => {
+    chrome.storage.local.get(['judolBlurEnabled', 'judolOcrEnabled'], (result: any) => {
         if (result.judolBlurEnabled) blurDetectedElements();
         if (result.judolOcrEnabled) scanImages();
     });
@@ -31,7 +33,7 @@ async function performScan() {
     chrome.runtime.sendMessage({ type: 'JUDOL_SCAN_COMPLETE', stats });
 }
 
-chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((msg: any, _sender: any, sendResponse: any) => {
     switch (msg.type) {
         case 'JUDOL_SCAN':
             performScan().then(() => sendResponse({ success: true }));
@@ -62,7 +64,7 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
             return true;
 
         case 'JUDOL_GET_STATS': {
-            chrome.storage.local.get('judolStats', (result) => {
+            chrome.storage.local.get('judolStats', (result: any) => {
                 sendResponse({ stats: result.judolStats || null });
             });
             return true;
