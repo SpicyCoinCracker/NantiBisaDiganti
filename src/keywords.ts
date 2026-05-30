@@ -8,5 +8,5 @@ export const KEYWORD_JUDI: string[] = [
     'hoki88', 'hoki99', 'madu308', 'madu88', 'madu99',
     'petir88', 'petir99', 'megaways', 'starlight', 'gates', 'olympus',
     'hoki', 'madu', 'jp', 'bet', 'master', 'wild',
-    '777', '188', '388', '688', '888', '88', 'sbobet', 'parlay'
+    '777', '188', '388', '688', '888', '88', 'sbobet', 'parlay', 'naga', 'toto', 'king'
 ];
